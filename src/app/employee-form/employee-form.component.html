@@ -1,0 +1,24 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  
+  <select formControlName="tipo" (change)="onTipoChange()">
+    <option value="">Selecione o tipo</option>
+    <option value="desenvolvedor">Desenvolvedor</option>
+    <option value="gerente">Gerente</option>
+  </select>
+
+  
+  <input type="text" formControlName="nome" placeholder="Nome">
+  <input type="number" formControlName="idade" placeholder="Idade">
+  <input type="number" formControlName="salarioBase" placeholder="Salário Base">
+
+  
+  <div *ngIf="tipoSelecionado === 'desenvolvedor'">
+    <input type="text" formControlName="linguagem" placeholder="Linguagem">
+  </div>
+
+  <div *ngIf="tipoSelecionado === 'gerente'">
+    <input type="number" formControlName="subordinados" placeholder="Subordinados">
+  </div>
+
+  <button type="submit" [disabled]="!employeeForm.valid">Cadastrar</button>
+</form>

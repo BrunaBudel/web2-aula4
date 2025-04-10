@@ -1,0 +1,5 @@
+<div *ngFor="let func of funcionarios">
+  <h3>{{ func.nome }} ({{ func.constructor.name }})</h3>
+  <p>Idade: {{ func.idade }}</p>
+  <p>Salário: R$ {{ func.calcularSalario() | number }}</p>
+</div>
